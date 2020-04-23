@@ -1,0 +1,38 @@
+{% load static %}
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <link rel="stylesheet" href="{% static 'css/reset.css' %}">
+    <link rel="stylesheet" href="{% static 'css/style.css' %}">
+    <link rel="stylesheet" href="{% static 'css/dataFromDB.css' %}">
+
+    <title>Document</title>
+</head>
+<body>
+<a href="index.php">Back to page</a>
+<div class="grid">
+{% if  profiles %}
+   
+        <p class="db-header">ID</p>
+        <p class="db-header">Name</p>
+        <p class="db-header">Mail</p>
+        <p class="db-header">Text</p>
+        {% for result in profiles  %}
+            <p class=\"db-content-id\">{{result.id}}</p>
+            <p class=\"db-content-name\">{{result.name}}</p>
+            <p class=\"db-content-mail\">{{result.mail}}</p>
+            <p class=\"db-content-text\">{{result.text}}</p>
+        {% endfor %}
+{% else %}
+        <div class="no-results">
+            <p>No results in Database</p>
+        </div>
+{% endif %}
+</div>
+
+</body>
+</html>
