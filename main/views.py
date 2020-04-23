@@ -18,12 +18,12 @@ class IndexView(View):
 		profile.mail = mail
 		profile.text = text
 		print(profile)
-		profile.save()
+		#profile.save()
 		return render(request,'index.html')
 
 
 class ResultsView(View):
 	def get(self, request):
 		profiles = Profile.objects.all()
-		print(profiles)
+		#print(profiles)
 		return render(request,'results.html',{"profiles":profiles})
